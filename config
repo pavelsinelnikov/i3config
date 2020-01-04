@@ -42,7 +42,7 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id ~/Misc/Code/Bash/Scripts/volum
 bindsym XF86AudioLowerVolume exec --no-startup-id ~/Misc/Code/Bash/Scripts/volumeControl.sh 5%- unmute
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/Misc/Code/Bash/Scripts/backlightControl.sh 10.2
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/Misc/Code/Bash/Scripts/backlightControl.sh -10.2
-bindsym $mod+space exec --no-startup-id playerctl play-pause
+bindsym $mod+space exec --no-startup-id ~/Misc/Code/Bash/Scripts/spotNotify.sh
 bindsym $mod+n exec --no-startup-id ~/Misc/Code/Bash/Scripts/togglexcomp.sh
 bindsym $mod+m exec --no-startup-id urxvt -e neomutt
 bindsym $mod+o exec --no-startup-id maim -s ~/Pictures/Screenshots/$(date +%s).png
@@ -255,4 +255,5 @@ no_focus [class="plasmashell" window_type="notification"]
 no_focus [class="plasmashell" window_type="on_screen_display"]
 
 for_window [class="Spotify"] move container to workspace 10; exec transset-df -an Spotify --no-regex 0.95
+for_window [class="KeePassXC"] move container to workspace 10
 for_window [class="code-oss"] focus; exec transset-df -a 0.95
