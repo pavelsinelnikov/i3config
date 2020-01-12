@@ -1,5 +1,3 @@
-
-#
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 #
 # This config file uses keycodes (bindsym) and was written for the QWERTY
@@ -54,6 +52,7 @@ bindcode $mod+Shift+60 exec --no-startup-id playerctl next
 bindcode $mod+Shift+59 exec --no-startup-id playerctl previous
 bindcode $mod+60 exec --no-startup-id playerctl position 10+ 
 bindcode $mod+59 exec --no-startup-id playerctl position 10-
+bindcode $mod+22 exec --no-startup-id kontact
 
 
 set_from_resource $fg i3wm.color7 #f0f0f0
@@ -178,8 +177,9 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
+#reload the configuration file
+### DANGEROUS WITH KDE
+#bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -243,6 +243,17 @@ client.focused		$bg     $bg     $fg     $fg       $bg
 
 # When laptop lid closed
 #exec --no-startup-id exit 
+
+#startup code
+exec urxvt -e calc; move scratchpad
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+for_window [class="systemsettings"] floating enable
+for_window [class="Plasma"] floating enable; border none
+for_window [title="plasma-desktop"] floating enable; border none
+for_window [class="(?i)*nextcloud*"] floating disable
 
 # Don’t treat Plasma pop-ups as full-sized windows
 for_window [class="plasmashell"] floating enable
